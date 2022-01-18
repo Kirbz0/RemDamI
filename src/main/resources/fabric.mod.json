@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "remdami",
+  "version": "${version}",
+  "name": "Remdami",
+  "description": "Minecraft 1.18 port of the NoDamI mod",
+  "authors": [
+    "Kirbz"
+  ],
+  "contact": {
+    "repo": "https://github.com/Kirbz0/remdami"
+  },
+  "license": "MPL-2.0",
+  "icon": "assets/remdami/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.kirbz.remdami.client.RemDamIClient"
+    ],
+    "main": [
+      "net.kirbz.remdami.RemDamI"
+    ]
+  },
+  "mixins": [
+    "remdami.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "minecraft": "1.18"
+  }
+}
