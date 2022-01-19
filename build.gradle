@@ -7,11 +7,18 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+    mavenCentral()
+
     // Add repositories to retrieve artifacts from in here.
     // You should only use this when depending on other mods because
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+}
+
+configurations {
+    // configuration that holds jars to include in the jar
+    extraLibs
 }
 
 dependencies {
@@ -22,6 +29,9 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.29'
+    extraLibs "org.yaml:snakeyaml:1.24"
 }
 
 processResources {
@@ -61,6 +71,10 @@ jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}" }
     }
+    from {
+        configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
 }
 
 // configure the maven publication

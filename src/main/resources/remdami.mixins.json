@@ -4,6 +4,8 @@
   "package": "net.kirbz.remdami.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "LivingEntityMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
   ],

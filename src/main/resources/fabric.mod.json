@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "remdami",
   "version": "${version}",
-  "name": "Remdami",
+  "name": "Removed Damage Immunity (RemDamI)",
   "description": "Minecraft 1.18 port of the NoDamI mod",
   "authors": [
     "Kirbz"
@@ -14,9 +14,6 @@
   "icon": "assets/remdami/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "net.kirbz.remdami.client.RemDamIClient"
-    ],
     "main": [
       "net.kirbz.remdami.RemDamI"
     ]
